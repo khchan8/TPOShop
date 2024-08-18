@@ -4,66 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check Order Status - TPO Wellness Store</title>
-    <!-- Add any necessary CSS links here -->
+    <!-- Add your CSS links here -->
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="/TPOShop/">TPO Wellness Store</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNav" aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="topNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/TPOShop/FAQ.html">FAQ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/TPOShop/UploadReceipt.html">Upload Receipt</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/TPOShop/OrderStatus.html">Order Status</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main class="content" role="main">
+    <div>
         <div class="container">
-            <h1 class="text-center mb-4">Check Order Status</h1>
-            <!-- Reflow Order Status Component -->
-            <div data-reflow-type="order-status"></div>
-        </div>
-    </main>
-
-    <footer class="mt-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <ul class="list-inline mb-2 mb-md-0">
-                        <li class="list-inline-item"><a href="/about">About Us</a></li>
-                        <li class="list-inline-item"><a href="https://facebook.com/tpowellness" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="https://instagram.com/tpowellness" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="https://x.com/tpowellness" aria-label="X (formerly Twitter)"><i class="fab fa-x-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="https://line.me/tpowellness" aria-label="Line"><i class="fab fa-line"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 text-md-end">
-                    <p class="mb-0">&copy; 2024 TPO Wellness Store. All rights reserved.</p>
-                </div>
+            <a class="navbar-brand" href="/TPOShop/">TPO Wellness Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNav" aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="topNav" class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/TPOShop/FAQ.html">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/TPOShop/UploadReceipt.html">Upload Receipt</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/TPOShop/OrderStatus.html">Order Status</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </footer>
-
-    <div class="chat-button">
-        <i class="fab fa-line"></i>
     </div>
 
-    <!-- Add any necessary JavaScript links here -->
-    <!-- Include Reflow SDK -->
+    <div class="content" role="main">
+        <div class="container">
+            <div class="order-status-form">
+                <h1 id="check-order-status" class="text-center mb-4">Check Order Status</h1>
+                
+                <!-- Reflow Order Status Component -->
+                <div data-reflow-type="order-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="https://facebook.com/tpowellness" aria-label="Facebook"></a></li>
+                    <li><a href="https://instagram.com/tpowellness" aria-label="Instagram"></a></li>
+                    <li><a href="https://x.com/tpowellness" aria-label="X (formerly Twitter)"></a></li>
+                    <li>
+                        <a href="https://line.me/tpowellness" aria-label="Line">
+                            <svg class="social-icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="currentColor" d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.082.922.258 1.057.592.121.303.079.770.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.283-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.572-3.843 2.572-5.992zm-18.988-2.595c.129 0 .234.105.234.234v4.153h2.287c.129 0 .233.104.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.119-.025-.161-.065-.043-.041-.072-.098-.072-.161v-5.235c0-.129.104-.233.233-.233h.842zm14.992 0c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.883h2.287c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.884h2.287c.129 0 .233.105.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.12-.025-.162-.065-.043-.041-.071-.098-.071-.161v-5.235c0-.062.028-.12.071-.161.042-.04.099-.065.162-.065h3.363zm-10.442.001c.129 0 .234.104.234.233v5.236c0 .129-.105.233-.234.233h-.842c-.129 0-.233-.104-.233-.233v-5.236c0-.129.104-.233.233-.233h.842zm2.127 0h.008l.012.001c.057.007.109.03.152.067l.178.185 2.297 2.923v-2.941c0-.129.105-.234.234-.234h.842c.129 0 .233.105.233.234v5.236c0 .096-.057.181-.147.218l-.002.001-.012.006-.011.004c-.053.013-.11.01-.165-.019-.019-.01-.038-.024-.052-.04l-.18-.188-2.301-2.934v2.951c0 .129-.104.234-.233.234h-.842c-.129 0-.234-.105-.234-.234v-5.236c0-.063.025-.119.065-.161.038-.042.091-.068.136-.073z"></path>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-md-end">
+                © 2024 TPO Wellness Store. All rights reserved.
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-button">
+        <svg class="social-icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#ffffff" d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.082.922.258 1.057.592.121.303.079.770.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.283-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.572-3.843 2.572-5.992zm-18.988-2.595c.129 0 .234.105.234.234v4.153h2.287c.129 0 .233.104.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.119-.025-.161-.065-.043-.041-.072-.098-.072-.161v-5.235c0-.129.104-.233.233-.233h.842zm14.992 0c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.883h2.287c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.884h2.287c.129 0 .233.105.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.12-.025-.162-.065-.043-.041-.071-.098-.071-.161v-5.235c0-.062.028-.12.071-.161.042-.04.099-.065.162-.065h3.363zm-10.442.001c.129 0 .234.104.234.233v5.236c0 .129-.105.233-.234.233h-.842c-.129 0-.233-.104-.233-.233v-5.236c0-.129.104-.233.233-.233h.842zm2.127 0h.008l.012.001c.057.007.109.03.152.067l.178.185 2.297 2.923v-2.941c0-.129.105-.234.234-.234h.842c.129 0 .233.105.233.234v5.236c0 .096-.057.181-.147.218l-.002.001-.012.006-.011.004c-.053.013-.11.01-.165-.019-.019-.01-.038-.024-.052-.04l-.18-.188-2.301-2.934v2.951c0 .129-.104.234-.233.234h-.842c-.129 0-.234-.105-.234-.234v-5.236c0-.063.025-.119.065-.161.038-.042.091-.068.136-.073z"></path>
+        </svg>
+    </div>
+
+    <!-- Reflow SDK -->
     <script src="https://cdn.reflowhq.com/v2/toolkit.min.js" data-reflow-store="1701742151"></script>
 </body>
 </html>
