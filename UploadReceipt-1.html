@@ -1,0 +1,196 @@
+<html><head><base href="/UploadReceipt.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>TPO Wellness Store - Upload Receipt</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.reflowhq.com/v2/toolkit.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<style>
+    :root {
+        --primary-color: #4a90e2;
+        --secondary-color: #f0f4f8;
+        --text-color: #333;
+        --light-text-color: #6c757d;
+    }
+    body {
+        font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .navbar {
+        background-color: var(--secondary-color);
+    }
+    .navbar-brand {
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+    .nav-link {
+        color: var(--text-color);
+        transition: color 0.3s ease;
+    }
+    .nav-link:hover, .nav-link:focus {
+        color: var(--primary-color);
+    }
+    .btn-primary {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+    .btn-primary:hover, .btn-primary:focus {
+        background-color: #3a7bc8;
+        border-color: #3a7bc8;
+    }
+    .content {
+        flex: 1 0 auto;
+        padding: 2rem 0;
+    }
+    .footer {
+        background-color: var(--secondary-color);
+        color: var(--light-text-color);
+        padding: 1rem 0;
+        margin-top: auto;
+    }
+    .upload-form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    }
+    .form-label {
+        font-weight: 600;
+    }
+    .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+    }
+    .file-upload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px 0;
+    }
+    .file-upload input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+    @media (max-width: 768px) {
+        .navbar-collapse {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md">
+            <div class="container">
+                <a class="navbar-brand" href="/">TPO Wellness Store</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNav" aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="topNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="/FAQ.html">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/UploadReceipt.html">Upload Receipt</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/OrderStatus.html">Order Status</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content">
+        <div class="container">
+            <div class="upload-form">
+                <h1 class="text-center mb-4">Upload Your Receipt</h1>
+                <form id="receiptUploadForm">
+                    <div class="mb-3">
+                        <label for="orderNumber" class="form-label">Order Number</label>
+                        <input type="text" class="form-control" id="orderNumber" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="receiptFile" class="form-label">Receipt Image</label>
+                        <div class="file-upload">
+                            <button class="btn btn-outline-primary w-100" type="button">Choose File</button>
+                            <input type="file" class="form-control" id="receiptFile" accept="image/*" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comments" class="form-label">Additional Comments (Optional)</label>
+                        <textarea class="form-control" id="comments" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit Receipt</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="/about">About Us</a></li>
+                        <li class="list-inline-item"><a href="https://facebook.com/tpowellness" aria-label="Facebook"><i class="bi bi-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="https://instagram.com/tpowellness" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="https://twitter.com/tpowellness" aria-label="Twitter"><i class="bi bi-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="https://line.me/tpowellness" aria-label="Line"><i class="bi bi-line"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <p class="mb-0">&copy; 2024 TPO Wellness Store. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.reflowhq.com/v2/toolkit.min.js" data-reflow-project="1701742151"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('receiptUploadForm');
+            const fileInput = document.getElementById('receiptFile');
+            const fileButton = fileInput.previousElementSibling;
+
+            fileButton.addEventListener('click', function() {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', function() {
+                if (fileInput.files.length > 0) {
+                    fileButton.textContent = fileInput.files[0].name;
+                } else {
+                    fileButton.textContent = 'Choose File';
+                }
+            });
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically send the form data to your server
+                alert('Receipt submitted successfully!');
+                form.reset();
+                fileButton.textContent = 'Choose File';
+            });
+        });
+    </script>
+</body></html>
