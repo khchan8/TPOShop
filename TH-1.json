@@ -22,7 +22,6 @@
   "continue_shopping": "Continue Shopping ซื้อสินค้าต่อ",
 
   "geo": {
-    "countries": ["TH"],
     "TH": {
       "country_name": "Thailand ประเทศไทย",
       "regions": {
