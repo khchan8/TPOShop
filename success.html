@@ -116,6 +116,9 @@
         <div class="container">
             <h1 id="thank-you-for-your-purchase" style="margin-bottom: 25px;margin-top: 40px;">Thank you for your purchase!</h1>
             <p>We are waiting for the bank transfer/payment, as soon as it is process, your Order will be shipped and we will email you as soon as possible.</p>
+			<p>Order ID: <span id="order-id"></span></p>
+			<p>Status: <span id="order-status"></span></p>
+			
         </div>
     </div>
 
@@ -130,5 +133,33 @@
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/scripts.js"></script>
+	
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// Extract order_id and secure_hash from URL
+			const urlParams = new URLSearchParams(window.location.search);
+			const orderId = urlParams.get('order_id');
+			const secureHash = urlParams.get('secure_hash');
+
+			// Save to local storage
+			if (orderId && secureHash) {
+				localStorage.setItem('order_id', orderId);
+				localStorage.setItem('secure_hash', secureHash);
+			}
+
+			// Use Reflow's SDK to fetch the order details (for redundancy)
+			reflow.on('orderCompleted', function(order) {
+				document.getElementById('order-id').textContent = order.id;
+				document.getElementById('order-status').textContent = order.status;
+
+				// Save order_id and secure_hash from SDK
+				if (order.id && order.secure_hash) {
+					localStorage.setItem('order_id', order.id);
+					localStorage.setItem('secure_hash', order.secure_hash);
+				}
+			});
+		});
+	</script>
+	
 </body>
 </html>
