@@ -1,6 +1,6 @@
 {
     "geo": {
-         "TH": {
+        "TH": {
             "country_name": "Thailand",
             "regions": {
                 "TH-37": "Amnat Charoen",
@@ -41,7 +41,7 @@
                 "TH-12": "Nonthaburi",
                 "TH-13": "Pathum Thani",
                 "TH-94": "Pattani",
-                "TH-S": "Pattaya",
+                "TH-PH": "Pattaya",
                 "TH-82": "Phang Nga",
                 "TH-93": "Phatthalung",
                 "TH-56": "Phayao",
@@ -82,6 +82,6 @@
                 "TH-95": "Yala",
                 "TH-35": "Yasothon"
             }
-
+        }
     }
 }
