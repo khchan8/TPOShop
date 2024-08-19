@@ -1,4 +1,4 @@
-<html><head><base href="/TPOShop">
+<html><head><base href="./">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <title>TPO Wellness Store</title>
@@ -18,7 +18,7 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-        padding-top: 56px; /* Adjusted for single row sticky navbar */
+        padding-top: 112px; /* Adjusted for sticky navbar */
     }
     .navbar {
         background-color: var(--secondary-color);
@@ -62,7 +62,7 @@
         width: 100%;
         z-index: 1000;
     }
-    @media (max-width: 991px) {
+    @media (max-width: 768px) {
         .navbar-collapse {
             background-color: white;
             padding: 1rem;
@@ -74,19 +74,33 @@
 </head>
 <body>
     <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-md">
             <div class="container">
                 <a class="navbar-brand" href="/">TPO Wellness Store</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#combinedNav" aria-controls="combinedNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNav" aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="combinedNav">
+                <div class="collapse navbar-collapse" id="topNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="FAQ.html">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="UploadReceipt.html">Upload Receipt</a></li>
+                        <li class="nav-item"><a class="nav-link" href="OrderStatus.html">Order Status</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-md">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Products
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/brand/auntie-aloha">Auntie Aloha</a></li>
                                 <li><a class="dropdown-item" href="/brand/fuzzies">Fuzzies</a></li>
                             </ul>
@@ -95,16 +109,9 @@
                         <li class="nav-item"><a class="nav-link" href="/preroll">Preroll</a></li>
                         <li class="nav-item"><a class="nav-link" href="/packaged-flowers">Packaged Flowers</a></li>
                     </ul>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="/FAQ.html">FAQ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/UploadReceipt.html">Upload Receipt</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/OrderStatus.html">Order Status</a></li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary" role="button" href="/cart.html">
-                                <i class="bi bi-cart"></i> View Cart
-                            </a>
-                        </li>
-                    </ul>
+                    <a class="btn btn-primary" role="button" href="/cart.html">
+                        <i class="bi bi-cart"></i> View Cart
+                    </a>
                 </div>
             </div>
         </nav>
