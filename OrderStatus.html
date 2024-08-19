@@ -122,18 +122,37 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-md">
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="index.html">TPO Wellness Store</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNav" aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#combinedNav" aria-controls="combinedNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="topNav">
+                <div class="collapse navbar-collapse" id="combinedNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Products
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                                <li><a class="dropdown-item" href="auntie-aloha">Auntie Aloha</a></li>
+                                <li><a class="dropdown-item" href="fuzzies">Fuzzies</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="edibles">Edibles</a></li>
+                        <li class="nav-item"><a class="nav-link" href="preroll">Preroll</a></li>
+                        <li class="nav-item"><a class="nav-link" href="packaged-flowers">Packaged Flowers</a></li>
+                    </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="FAQ.html">FAQ</a></li>
                         <li class="nav-item"><a class="nav-link" href="UploadReceipt.html">Payment</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="OrderStatus.html">Order Status</a></li>
+                        <li class="nav-item"><a class="nav-link" href="OrderStatus.html">Order Status</a></li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary" role="button" href="cart.html">
+                                <i class="bi bi-cart"></i> See Cart
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -157,7 +176,7 @@
             <div class="row align-items-center">
                 <div class="col-md-8">
                     <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="about">About Us</a></li>
+                        <li class="list-inline-item"><a href="about.html">About Us</a></li>
                         <li class="list-inline-item">
                             <a href="https://facebook.com/tpowellness" aria-label="Facebook">
                                 <i class="bi bi-facebook"></i>
@@ -176,14 +195,14 @@
                         <li class="list-inline-item">
                             <a href="https://line.me/tpowellness" aria-label="Line">
                                 <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill="currentColor" d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.082.922.258 1.057.592.121.303.079.770.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.283-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.572-3.843 2.572-5.992zm-18.988-2.595c.129 0 .234.105.234.234v4.153h2.287c.129 0 .233.104.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.119-.025-.161-.065-.043-.041-.072-.098-.072-.161v-5.235c0-.129.104-.233.233-.233h.842zm14.992 0c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.883h2.287c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.884h2.287c.129 0 .233.105.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.12-.025-.162-.065-.043-.041-.071-.098-.071-.161v-5.235c0-.062.028-.12.071-.161.042-.04.099-.065.162-.065h3.363zm-10.442.001c.063 0 .119.025.162.065.043.041.071.098.071.161v5.235c0 .129-.105.234-.234.234h-.842c-.129 0-.233-.105-.233-.234v-4.153h-1.312c-.063 0-.12-.025-.162-.065-.042-.041-.071-.098-.071-.161v-.842c0-.129.104-.234.233-.234zm4.121 0c.129 0 .233.105.233.234v5.235c0 .063-.029.12-.071.161-.043.04-.099.065-.162.065h-.841c-.063 0-.12-.025-.162-.065-.043-.041-.071-.098-.071-.161v-5.235c0-.129.104-.234.233-.234z"/>
+                                    <path fill="currentColor" d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.082.922.258 1.057.592.121.303.079.770.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.283-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.572-3.843 2.572-5.992zm-18.988-2.595c.129 0 .234.105.234.234v4.153h2.287c.129 0 .233.104.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.119-.025-.161-.065-.043-.041-.072-.098-.072-.161v-5.235c0-.129.104-.233.233-.233h.842zm14.992 0c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.883h2.287c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.884h2.287c.129 0 .233.105.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.12-.025-.162-.065-.043-.041-.071-.098-.071-.161v-5.235c0-.062.028-.12.071-.161.042-.04.099-.065.162-.065h3.363zm-10.442.001c.129 0 .234.104.234.233v5.236c0 .129-.105.233-.234.233h-.842c-.129 0-.233-.104-.233-.233v-5.236c0-.129.104-.233.233-.233h.842zm2.127 0h.008l.012.001c.057.007.109.03.152.067l.178.185 2.297 2.923v-2.941c0-.129.105-.234.234-.234h.842c.129 0 .233.105.233.234v5.236c0 .096-.057.181-.147.218l-.002.001-.012.006-.011.004c-.053.013-.11.01-.165-.019-.019-.01-.038-.024-.052-.04l-.18-.188-2.301-2.934v2.951c0 .129-.104.234-.233.234h-.842c-.129 0-.234-.105-.234-.234v-5.236c0-.063.025-.119.065-.161.038-.042.091-.068.136-.073z"/>
                                 </svg>
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-4 text-md-end">
-                    <a href="/contact" class="text-decoration-none text-dark">Contact Us</a>
+                    <p class="mb-0">&copy; 2024 TPO Wellness Store. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -198,5 +217,30 @@
 	<script src="https://cdn.reflowhq.com/v2/toolkit.min.js" data-reflow-project="1701742151"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.reflowhq.com/v2/toolkit.min.js"></script>
+    
+    <script>
+        // This script adds functionality to check for order ID and secure hash in the URL
+        // and appends them to the Reflow Order Status component if they are missing.
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('order_id');
+        const secureHash = urlParams.get('secure_hash');
+
+        const orderStatusComponent = document.querySelector('[data-reflow-type="order-status"]');
+
+        if (orderId && secureHash) {
+            // If order_id and secure_hash are present, do nothing - Reflow will handle them.
+            console.log("Order ID and Secure Hash found in URL.");
+        } else {
+            // If order_id and secure_hash are missing, append them for testing purposes.
+            // Replace 'testing' with actual order ID and secure hash for real-world use.
+            console.warn("Order ID and Secure Hash not found in URL. Appending test values.");
+            const testOrderId = 'testing';
+            const testSecureHash = 'testing';
+
+            orderStatusComponent.setAttribute('data-reflow-order-id', testOrderId);
+            orderStatusComponent.setAttribute('data-reflow-secure-hash', testSecureHash);
+        }
+    </script>
 </body>
 </html>
