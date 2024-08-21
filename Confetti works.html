@@ -1,75 +1,54 @@
+<html><head><base href="https://wellness.phostore.com/upload-receipt">
+</head><body>Certainly! I'll create an HTML page for the upload receipt functionality that matches the style and theme-switching capabilities of the main page. Here's a complete HTML file for the "Upload Receipt" page:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TPO Wellness Store</title>
+    <title>Upload Receipt - TPO Wellness Store</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.reflowhq.com/v2/toolkit.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="theme-switcher.css">
-<style>
-		.confetti {
-			position: fixed;
-			width: 15px;
-			height: 15px;
-			z-index: 9999; /* Increased z-index */
-			animation: fall 6s linear infinite;
-			opacity: 0.7;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-			pointer-events: none; /* Ensure confetti doesn't interfere with clicks */
-		}
-		@keyframes fall {
-			from { 
-				transform: translateY(-5vh) translateX(0) rotate(0deg);
-				opacity: 1;
-			}
-			to { 
-				transform: translateY(105vh) translateX(20vw) rotate(720deg);
-				opacity: 0;
-			}
-		}
-		/* Ensure the confetti container is above everything */
-		#confetti-container {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			pointer-events: none;
-			z-index: 9998;
-		}        .firework {
-            position: absolute;
-            width: 5px;
-            height: 5px;
+    <style>
+        .confetti, .firework {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            z-index: 1000;
+        }
+        .confetti {
+            animation: fall 3s linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-100vh) rotate(0deg); }
+            to { transform: translateY(100vh) rotate(720deg); }
+        }
+        .firework {
             border-radius: 50%;
             animation: explode 2s ease-out infinite;
         }
         @keyframes explode {
-            0% {
-                transform: scale(0);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(20);
-                opacity: 0;
-            }
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(20); opacity: 0; }
         }
-</style>
+    </style>
 </head>
 <body>
-	
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="index.html">TPO Wellness Store</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#combinedNav" aria-controls="combinedNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="combinedNav">
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="FAQ.html">FAQ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="UploadReceipt.html">Payment</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="UploadReceipt.html">Payment</a></li>
                         <li class="nav-item"><a class="nav-link" href="OrderStatus.html">Order Status</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="themeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -83,32 +62,28 @@
                                 <li><a class="dropdown-item theme-option" href="#" data-theme="matrix-mode">Matrix Mode</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary" role="button" href="cart.html">
-                                <i class="bi bi-cart"></i> See Cart
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <main class="content">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- Category List in Horizontal Bar Layout -->
-                    <div data-reflow-type="category-list" data-reflow-layout="horizontal-bar" data-reflow-category-link="category.html?category={id}"></div>
-
-                    <!-- Product List -->
-                    <div data-reflow-type="product-list" data-reflow-layout="cards" data-reflow-order="date_desc" data-reflow-show="image, name, excerpt, price, pagination" data-reflow-product-link="product.html?product={id}"></div>
-                </div>
+    <main class="container my-5">
+        <h1 class="mb-4">Upload Receipt</h1>
+        <form id="receiptForm">
+            <div class="mb-3">
+                <label for="orderNumber" class="form-label">Order Number</label>
+                <input type="text" class="form-control" id="orderNumber" required>
             </div>
-        </div>
+            <div class="mb-3">
+                <label for="receiptFile" class="form-label">Receipt Image</label>
+                <input type="file" class="form-control" id="receiptFile" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Receipt</button>
+        </form>
     </main>
 
-    <footer class="footer mt-auto">
+    <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-8">
@@ -128,55 +103,76 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.reflowhq.com/v2/toolkit.min.js" data-reflow-project="1701742151" data-reflow-locale="https://khchan8.github.io/TPOShop/TH.json"></script>
     <script>
-        
-			document.body.insertAdjacentHTML('beforeend', '<div id="confetti-container"></div>');
-	
-		// Confetti Functions
-		let confettiInterval;
-		let activeConfetti = new Set();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme Switching Functionality
+            const themeLinks = document.querySelectorAll('.theme-option');
 
-		function startConfetti() {
-			if (!confettiInterval) {
-				confettiInterval = setInterval(createConfetti, 300); // Reduced frequency
+			function setTheme(theme) {
+				document.body.className = theme;
+				localStorage.setItem('shopMode', theme);
+				updateContent(theme);
+
+				// Remove all effects
+				removeMatrixRain();
+				stopConfetti();
+				stopFireworks();
+
+				// Apply theme-specific effects
+				if (theme === 'matrix-mode') {
+					createMatrixRain();
+				} else if (theme === 'happy-mode') {
+					startConfetti();
+				} else if (theme === 'family-mode') {
+					startFireworks();
+				}
 			}
-		}
+            themeLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const selectedTheme = this.dataset.theme;
+                    setTheme(selectedTheme);
+                });
+            });
 
-		function stopConfetti() {
-			if (confettiInterval) {
-				clearInterval(confettiInterval);
-				confettiInterval = null;
-			}
-			activeConfetti.forEach(confetti => {
-				confetti.remove();
-			});
-			activeConfetti.clear();
-		}
+            // Load saved theme from localStorage
+            const savedTheme = localStorage.getItem('shopMode');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            }
 
-		function createConfetti() {
-			const confetti = document.createElement('div');
-			confetti.className = 'confetti';
-			confetti.style.left = Math.random() * 100 + 'vw';
-			confetti.style.width = '15px';  // Increased size
-			confetti.style.height = '15px'; // Increased size
-			confetti.style.animationDuration = (Math.random() * 4 + 6) + 's'; // Slower fall
-			confetti.style.backgroundColor = getRandomColor();
-			document.body.appendChild(confetti);
-			activeConfetti.add(confetti);
+            // Form submission
+            document.getElementById('receiptForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Receipt submitted successfully!');
+                this.reset();
+            });
+        });
 
-			confetti.addEventListener('animationend', () => {
-				confetti.remove();
-				activeConfetti.delete(confetti);
-			});
-		}
+        // Confetti Functions
+        let confettiInterval;
+        function startConfetti() {
+            confettiInterval = setInterval(createConfetti, 100);
+        }
 
-		function getRandomColor() {
-			// Brighter, more contrasting colors
-			const colors = ['#FF00FF', '#00FFFF', '#FFFF00', '#FF0000', '#00FF00', '#0000FF'];
-			return colors[Math.floor(Math.random() * colors.length)];
-		}
-		
+        function stopConfetti() {
+            clearInterval(confettiInterval);
+            document.querySelectorAll('.confetti').forEach(c => c.remove());
+        }
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            confetti.style.backgroundColor = getRandomColor();
+            document.body.appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+
         // Fireworks Functions
         let fireworksInterval;
         function startFireworks() {
@@ -200,6 +196,7 @@
                 firework.remove();
             }, 2000);
         }
+
         // Matrix Functions
         function createMatrixRain() {
             const matrixCanvas = document.createElement('canvas');
@@ -253,105 +250,56 @@
                 matrixCanvas.remove();
             }
         }
-		        // Update content based on the current theme
+
+        function getRandomColor() {
+            const colors = ['#f2d74e', '#95c3de', '#ff9a9a', '#a5dff9', '#60d394'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Update content based on the current theme
         function updateContent(theme) {
             const navbar = document.querySelector('.navbar-brand');
+            const pageTitle = document.querySelector('h1');
             switch(theme) {
                 case 'dark-mode':
                     navbar.textContent = 'Black Market Cannabis Shop';
+                    pageTitle.textContent = 'Submit Payment Proof';
                     break;
                 case 'happy-mode':
                     navbar.textContent = 'Thailand Legal THC Paradise';
+                    pageTitle.textContent = 'Share Your Happy Receipt!';
                     break;
                 case 'family-mode':
                     navbar.textContent = 'Cannabis Candy Shop';
+                    pageTitle.textContent = 'Family Receipt Upload';
                     break;
                 case 'matrix-mode':
                     navbar.textContent = 'The Matrix Cannabis';
+                    pageTitle.textContent = 'Upload Receipt to the System';
                     break;
                 default:
                     navbar.textContent = 'TPO Wellness Store';
+                    pageTitle.textContent = 'Upload Receipt';
             }
         }
-		
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize tooltips
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl)
-            });
-
-            // Add smooth scrolling to all links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    const targetId = this.getAttribute('href');
-                    if (targetId && targetId !== '#') {
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
-                });
-            });
-
-            // Add active class to current navigation item
-            const currentLocation = location.href;
-            const menuItems = document.querySelectorAll('nav a');
-            const menuLength = menuItems.length;
-            for (let i = 0; i < menuLength; i++) {
-                if (menuItems[i].href === currentLocation) {
-                    menuItems[i].classList.add('active');
-                }
-            }
-
-			// Theme Switching Functionality
-			const themeLinks = document.querySelectorAll('.theme-option');
-
-			function setTheme(theme) {
-				document.body.className = theme;
-				localStorage.setItem('shopMode', theme);
-				updateContent(theme);
-
-				// Remove all effects
-				removeMatrixRain();
-				stopConfetti();
-				stopFireworks();
-
-				// Apply theme-specific effects
-				if (theme === 'matrix-mode') {
-					createMatrixRain();
-				} else if (theme === 'happy-mode') {
-					startConfetti();
-				} else if (theme === 'family-mode') {
-					startFireworks();
-				}
-			}
-
-			themeLinks.forEach(link => {
-				link.addEventListener('click', function(e) {
-					e.preventDefault();
-					const selectedTheme = this.dataset.theme;
-					setTheme(selectedTheme);
-				});
-			});
-
-			// Load saved theme from localStorage
-			const savedTheme = localStorage.getItem('shopMode');
-			if (savedTheme) {
-				setTheme(savedTheme);
-			}
-
-            // Initialize Bootstrap Dropdown
-            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
-            var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
-                return new bootstrap.Dropdown(dropdownToggleEl)
-            });
-        });
-
     </script>
 </body>
 </html>
+```
+
+This HTML file includes:
+
+1. A responsive layout using Bootstrap
+2. A navigation bar with theme switching options
+3. A simple form for uploading receipts
+4. Footer with social media links
+5. Theme switching functionality that changes the page content and applies visual effects
+6. Confetti, fireworks, and matrix rain effects for different themes
+
+To use this page:
+
+1. Save this HTML as `upload-receipt.html` in your website's root directory.
+2. Ensure you have the `theme-switcher.css` file in the same directory, containing the theme-specific styles.
+3. Update any links or paths as necessary to match your website's structure.
+
+This page will allow users to upload their receipts while enjoying the same theme-switching capabilities as the main page. The form submission is currently set to show an alert and reset the form; you'll need to replace this with actual server-side processing to handle the receipt uploads.

@@ -1,0 +1,264 @@
+/* Base Styles - Default Theme */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f0f4f8;
+    --text-color: #333;
+    --light-text-color: #6c757d;
+    --background-color: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-link {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--primary-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #3a7bc8;
+    border-color: #3a7bc8;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    --primary-color: #00ff00;
+    --secondary-color: #1a1a1a;
+    --text-color: #ffffff;
+    --light-text-color: #cccccc;
+    --background-color: #121212;
+}
+
+.dark-mode .navbar,
+.dark-mode .footer {
+    background-color: var(--secondary-color);
+}
+
+.dark-mode .navbar-brand {
+    color: var(--primary-color);
+}
+
+.dark-mode .nav-link {
+    color: var(--text-color);
+}
+
+.dark-mode .nav-link:hover, .dark-mode .nav-link:focus {
+    color: var(--primary-color);
+}
+
+.dark-mode .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #000000;
+}
+
+.dark-mode .btn-primary:hover, .dark-mode .btn-primary:focus {
+    background-color: #00cc00;
+    border-color: #00cc00;
+}
+
+/* Happy Mode Styles */
+body.happy-mode {
+    --primary-color: #ff9900;
+    --secondary-color: #ffe6b3;
+    --text-color: #333333;
+    --light-text-color: #666666;
+    --background-color: #fff5e6;
+}
+
+.happy-mode .navbar,
+.happy-mode .footer {
+    background-color: var(--secondary-color);
+}
+
+.happy-mode .navbar-brand {
+    color: var(--primary-color);
+}
+
+.happy-mode .nav-link {
+    color: var(--text-color);
+}
+
+.happy-mode .nav-link:hover, .happy-mode .nav-link:focus {
+    color: var(--primary-color);
+}
+
+.happy-mode .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.happy-mode .btn-primary:hover, .happy-mode .btn-primary:focus {
+    background-color: #e68a00;
+    border-color: #e68a00;
+}
+
+/* Family Mode Styles */
+body.family-mode {
+    --primary-color: #ff66b2;
+    --secondary-color: #ffe6f2;
+    --text-color: #4d0026;
+    --light-text-color: #990052;
+    --background-color: #fff0f5;
+}
+
+.family-mode .navbar,
+.family-mode .footer {
+    background-color: var(--secondary-color);
+}
+
+.family-mode .navbar-brand {
+    color: var(--primary-color);
+}
+
+.family-mode .nav-link {
+    color: var(--text-color);
+}
+
+.family-mode .nav-link:hover, .family-mode .nav-link:focus {
+    color: var(--primary-color);
+}
+
+.family-mode .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.family-mode .btn-primary:hover, .family-mode .btn-primary:focus {
+    background-color: #ff3399;
+    border-color: #ff3399;
+}
+
+/* Matrix Mode */
+body.matrix-mode {
+    --primary-color: #00ff00;
+    --secondary-color: #000000;
+    --text-color: #00ff00;
+    --light-text-color: #008000;
+    --background-color: #000000;
+}
+
+.matrix-mode .navbar,
+.matrix-mode .footer {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.matrix-mode .navbar-brand,
+.matrix-mode .nav-link {
+    color: var(--primary-color) !important;
+    font-family: 'Courier New', monospace;
+}
+
+/* Common Styles for Upload Area, Buttons, and Chat Bot Icon */
+.upload-area {
+    border: 2px dashed var(--primary-color);
+    background-color: var(--background-color);
+}
+
+.upload-area:hover {
+    background-color: var(--secondary-color);
+}
+
+.upload-icon {
+    color: var(--primary-color);
+}
+
+.chat-bot-icon {
+    background-color: var(--primary-color);
+}
+
+.chat-bot-icon i {
+    color: #ffffff;
+}
+
+/* Confetti Animation */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #f2d74e;
+    opacity: 0;
+    animation: confetti-fall 3s ease-in infinite;
+    z-index: 9999;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Matrix Rain Animation */
+.matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.matrix-drop {
+    position: absolute;
+    color: var(--primary-color);
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    line-height: 1;
+    opacity: 0;
+    animation: matrix-rain-fall 2s linear infinite;
+}
+
+@keyframes matrix-rain-fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,249 @@
+<html><head><base href="https://wellness.phostore.com/upload-receipt">
+</head><body>Certainly! I'll create a separate CSS file named `theme-switcher.css` that contains all the theme styles and the Matrix rain animation. Here's the content for the `theme-switcher.css` file:
+
+```css
+/* Default Theme */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f0f4f8;
+    --text-color: #333;
+    --light-text-color: #6c757d;
+    --background-color: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.navbar {
+    background-color: var(--primary-color);
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+}
+
+.footer {
+    background-color: var(--secondary-color);
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --primary-color: #1a1a1a;
+    --secondary-color: #2c2c2c;
+    --text-color: #ffffff;
+    --light-text-color: #cccccc;
+    --background-color: #121212;
+}
+
+/* Happy Mode */
+body.happy-mode {
+    --primary-color: #ff9900;
+    --secondary-color: #fff4e6;
+    --text-color: #663c00;
+    --light-text-color: #996300;
+    --background-color: #fffaf0;
+}
+
+/* Family Mode */
+body.family-mode {
+    --primary-color: #ff6b6b;
+    --secondary-color: #ffeaea;
+    --text-color: #4a4a4a;
+    --light-text-color: #7a7a7a;
+    --background-color: #fff5f5;
+}
+
+/* Matrix Mode */
+body.matrix-mode {
+    --primary-color: #00ff00;
+    --secondary-color: #000000;
+    --text-color: #00ff00;
+    --light-text-color: #008000;
+    --background-color: #000000;
+}
+
+.matrix-mode .navbar,
+.matrix-mode .footer {
+    background-color: #000000;
+    border-bottom: 1px solid #00ff00;
+}
+
+.matrix-mode .navbar-brand,
+.matrix-mode .nav-link {
+    color: #00ff00 !important;
+    font-family: 'Courier New', monospace;
+}
+
+/* Matrix Rain Animation */
+.matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.matrix-drop {
+    position: absolute;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    line-height: 1;
+    opacity: 0;
+    animation: matrix-rain-fall 2s linear infinite;
+}
+
+@keyframes matrix-rain-fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Theme-specific styles for common elements */
+.upload-area {
+    border: 2px dashed var(--primary-color);
+    background-color: var(--background-color);
+}
+
+.upload-area:hover {
+    background-color: var(--secondary-color);
+}
+
+.upload-icon {
+    color: var(--primary-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* Chat Bot Icon */
+.chat-bot-icon {
+    background-color: var(--primary-color);
+}
+
+.chat-bot-icon i {
+    color: #ffffff;
+}
+```
+
+To use this CSS file in your HTML:
+
+1. Save the above CSS content to a file named `theme-switcher.css` in the same directory as your HTML file.
+
+2. In your HTML file, add a link to this CSS file in the `<head>` section:
+
+```html
+<link rel="stylesheet" href="theme-switcher.css">
+```
+
+3. Modify your JavaScript to apply the themes by adding or removing classes from the `<body>` element. Here's an example of how to do this:
+
+```javascript
+function setTheme(theme) {
+    document.body.className = theme;
+    localStorage.setItem('currentTheme', theme);
+    updateContent(theme);
+}
+
+// Function to apply the saved theme on page load
+function applySavedTheme() {
+    const savedTheme = localStorage.getItem('currentTheme');
+    if (savedTheme) {
+        setTheme(savedTheme);
+    }
+}
+
+// Call this function when the page loads
+document.addEventListener('DOMContentLoaded', applySavedTheme);
+
+// Example of how to switch themes
+document.querySelector('.theme-switcher').addEventListener('click', function(e) {
+    if (e.target.classList.contains('theme-option')) {
+        setTheme(e.target.dataset.theme);
+    }
+});
+
+// Function to create Matrix rain effect
+function createMatrixRain() {
+    if (!document.querySelector('.matrix-rain')) {
+        const rainContainer = document.createElement('div');
+        rainContainer.className = 'matrix-rain';
+        document.body.appendChild(rainContainer);
+
+        for (let i = 0; i < 100; i++) {
+            createMatrixDrop(rainContainer);
+        }
+    }
+}
+
+function createMatrixDrop(container) {
+    const drop = document.createElement('div');
+    drop.className = 'matrix-drop';
+    drop.style.left = `${Math.random() * 100}%`;
+    drop.style.animationDuration = `${Math.random() * 2 + 1}s`;
+    drop.style.animationDelay = `${Math.random() * 2}s`;
+    drop.textContent = Math.random() < 0.5 ? '1' : '0';
+    container.appendChild(drop);
+
+    drop.addEventListener('animationiteration', () => {
+        drop.textContent = Math.random() < 0.5 ? '1' : '0';
+    });
+}
+
+// Function to remove Matrix rain effect
+function removeMatrixRain() {
+    const rainContainer = document.querySelector('.matrix-rain');
+    if (rainContainer) {
+        rainContainer.remove();
+    }
+}
+
+// Update content based on the current theme
+function updateContent(theme) {
+    // Update navbar brand, etc.
+    const navbar = document.querySelector('.navbar-brand');
+    switch(theme) {
+        case 'dark-mode':
+            navbar.textContent = 'Black Market Cannabis Shop';
+            removeMatrixRain();
+            break;
+        case 'happy-mode':
+            navbar.textContent = 'Thailand Legal THC Paradise';
+            removeMatrixRain();
+            break;
+        case 'family-mode':
+            navbar.textContent = 'Cannabis Candy Shop';
+            removeMatrixRain();
+            break;
+        case 'matrix-mode':
+            navbar.textContent = 'The Matrix Cannabis';
+            createMatrixRain();
+            break;
+        default:
+            navbar.textContent = 'TPO Wellness Store';
+            removeMatrixRain();
+    }
+}
+```
+
+This setup allows you to easily switch between themes by adding the appropriate class to the `<body>` element. The CSS file handles all the styling for different themes, including the Matrix rain animation. The JavaScript functions provided show how to apply themes, save the current theme to localStorage, and create/remove the Matrix rain effect when switching to or from the Matrix theme.

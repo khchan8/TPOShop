@@ -1,0 +1,314 @@
+<html><head><base href="https://wellness.phostore.com/upload-receipt">
+</head><body>Certainly! I'll provide you with a comprehensive CSS file that contains all the themes, along with instructions on how to use it effectively. Here's the CSS file and the instructions for implementation:
+
+1. CSS File (theme-switcher.css):
+
+```css
+/* Base Styles */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f0f4f8;
+    --text-color: #333;
+    --light-text-color: #6c757d;
+    --background-color: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-link {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--primary-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #3a7bc8;
+    border-color: #3a7bc8;
+}
+
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    --primary-color: #00ff00;
+    --secondary-color: #1a1a1a;
+    --text-color: #ffffff;
+    --light-text-color: #cccccc;
+    --background-color: #121212;
+}
+
+.dark-mode .navbar, .dark-mode .footer {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .navbar-brand {
+    color: #00ff00;
+}
+
+.dark-mode .nav-link {
+    color: #ffffff;
+}
+
+.dark-mode .nav-link:hover, .dark-mode .nav-link:focus {
+    color: #00ff00;
+}
+
+.dark-mode .btn-primary {
+    background-color: #00ff00;
+    border-color: #00ff00;
+    color: #000000;
+}
+
+.dark-mode .btn-primary:hover, .dark-mode .btn-primary:focus {
+    background-color: #00cc00;
+    border-color: #00cc00;
+}
+
+/* Happy Mode Styles */
+body.happy-mode {
+    --primary-color: #ff9900;
+    --secondary-color: #ffe6b3;
+    --text-color: #333333;
+    --light-text-color: #666666;
+    --background-color: #fff5e6;
+}
+
+.happy-mode .navbar, .happy-mode .footer {
+    background-color: #ffe6b3;
+}
+
+.happy-mode .navbar-brand {
+    color: #ff9900;
+}
+
+.happy-mode .nav-link {
+    color: #333333;
+}
+
+.happy-mode .nav-link:hover, .happy-mode .nav-link:focus {
+    color: #ff9900;
+}
+
+.happy-mode .btn-primary {
+    background-color: #ff9900;
+    border-color: #ff9900;
+    color: #ffffff;
+}
+
+.happy-mode .btn-primary:hover, .happy-mode .btn-primary:focus {
+    background-color: #e68a00;
+    border-color: #e68a00;
+}
+
+/* Family Mode Styles */
+body.family-mode {
+    --primary-color: #ff66b2;
+    --secondary-color: #ffe6f2;
+    --text-color: #4d0026;
+    --light-text-color: #990052;
+    --background-color: #fff0f5;
+}
+
+.family-mode .navbar, .family-mode .footer {
+    background-color: #ffe6f2;
+}
+
+.family-mode .navbar-brand {
+    color: #ff66b2;
+}
+
+.family-mode .nav-link {
+    color: #4d0026;
+}
+
+.family-mode .nav-link:hover, .family-mode .nav-link:focus {
+    color: #ff66b2;
+}
+
+.family-mode .btn-primary {
+    background-color: #ff66b2;
+    border-color: #ff66b2;
+    color: #ffffff;
+}
+
+.family-mode .btn-primary:hover, .family-mode .btn-primary:focus {
+    background-color: #ff3399;
+    border-color: #ff3399;
+}
+
+/* Confetti Animation */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #f2d74e;
+    opacity: 0;
+    animation: confetti-fall 3s ease-in infinite;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Line Chat Bot Icon */
+#lineChatBot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #00B900;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+#lineChatBot:hover {
+    transform: scale(1.1);
+}
+
+#lineChatBot i {
+    color: white;
+    font-size: 30px;
+}
+```
+
+Instructions on how to use the CSS file and implement theme switching:
+
+1. Include the CSS file:
+   Add the following line in the `<head>` section of your HTML:
+   ```html
+   <link rel="stylesheet" href="path/to/theme-switcher.css">
+   ```
+
+2. Add theme switcher buttons to your HTML:
+   ```html
+   <button id="dayMode">Day Mode</button>
+   <button id="darkMode">Dark Mode</button>
+   <button id="happyMode">Happy Mode</button>
+   <button id="familyMode">Family Mode</button>
+   ```
+
+3. Implement JavaScript for theme switching:
+   ```javascript
+   document.addEventListener('DOMContentLoaded', function() {
+       const dayMode = document.getElementById('dayMode');
+       const darkMode = document.getElementById('darkMode');
+       const happyMode = document.getElementById('happyMode');
+       const familyMode = document.getElementById('familyMode');
+       const body = document.body;
+
+       function setMode(mode) {
+           body.className = mode;
+           localStorage.setItem('shopMode', mode);
+           updateContent(mode);
+       }
+
+       function updateContent(mode) {
+           const navbar = document.querySelector('.navbar-brand');
+           switch(mode) {
+               case 'dark-mode':
+                   navbar.textContent = 'Black Market Cannabis Shop';
+                   break;
+               case 'happy-mode':
+                   navbar.textContent = 'Thailand Legal THC Paradise';
+                   createConfetti();
+                   break;
+               case 'family-mode':
+                   navbar.textContent = 'Cannabis Candy Shop';
+                   break;
+               default:
+                   navbar.textContent = 'TPO Wellness Store';
+           }
+       }
+
+       function createConfetti() {
+           for (let i = 0; i < 50; i++) {
+               const confetti = document.createElement('div');
+               confetti.className = 'confetti';
+               confetti.style.left = Math.random() * 100 + 'vw';
+               confetti.style.animationDelay = Math.random() * 3 + 's';
+               confetti.style.backgroundColor = getRandomColor();
+               document.body.appendChild(confetti);
+
+               setTimeout(() => {
+                   confetti.remove();
+               }, 3000);
+           }
+       }
+
+       function getRandomColor() {
+           const colors = ['#f2d74e', '#95c3de', '#ff9a9a', '#a5dff9', '#60d394'];
+           return colors[Math.floor(Math.random() * colors.length)];
+       }
+
+       dayMode.addEventListener('click', () => setMode(''));
+       darkMode.addEventListener('click', () => setMode('dark-mode'));
+       happyMode.addEventListener('click', () => setMode('happy-mode'));
+       familyMode.addEventListener('click', () => setMode('family-mode'));
+
+       // Load saved mode from localStorage
+       const savedMode = localStorage.getItem('shopMode');
+       if (savedMode) {
+           setMode(savedMode);
+       }
+
+       // If in happy mode, start confetti at intervals
+       setInterval(() => {
+           if (body.classList.contains('happy-mode')) {
+               createConfetti();
+           }
+       }, 10000); // Create confetti every 10 seconds in happy mode
+   });
+   ```
+
+4. Customize content for each theme:
+   In the `updateContent` function, you can add more customizations for each theme, such as changing images, updating text content, or modifying layouts.
+
+5. Persist theme selection:
+   The code above uses `localStorage` to save the user's theme preference. This ensures that the selected theme persists across page reloads.
+
+6. Implement theme-specific features:
+   For example, the happy mode creates confetti animations. You can add more theme-specific features in the `setMode` and `updateContent` functions.
+
+By following these instructions and using the provided CSS file, you can easily implement theme switching in your website. The themes will change colors, store names, and even add special effects like confetti for the happy mode. You can further customize each theme by adding more CSS rules or JavaScript functionality as needed.
+</body></html>
