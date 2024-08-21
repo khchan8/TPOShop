@@ -167,13 +167,16 @@
 	<main class="content">
 		<div class="container">
 			<div class="upload-form">
-				<h1 class="text-center mb-4">Proof Of Payment</h1>
+				<h1 class="text-center mb-4">Proof Of Payment Upload</h1>
 				<form id="receiptUploadForm">
 					<div class="mb-3">
 						<label for="email" class="form-label">Email Address</label>
 						<input type="email" class="form-control" id="email" required>
 					</div>
-
+					<div class="mb-3">
+						<label for="orderNumber" class="form-label">Order Number (Optional)</label>
+						<input type="text" class="form-control" id="orderNumber" required>
+					</div>
 					<div class="mb-3">
 						<label class="form-label">Bank Confirmation Receipt Image</label>
 						<input type="file" id="fileInput" accept="image/*" class="form-control mb-2">
@@ -182,12 +185,6 @@
 						</div>
 						<div id="fileList"></div>
 					</div>
-					
-					<div class="mb-3">
-						<label for="orderNumber" class="form-label">Order Number (Optional)</label>
-						<input type="text" class="form-control" id="orderNumber" required>
-					</div>
-					
 					<div class="mb-3">
 						<label for="comments" class="form-label">Additional Comments (Optional)</label>
 						<textarea class="form-control" id="comments" rows="3"></textarea>
@@ -307,41 +304,29 @@
             const comments = document.getElementById('comments').value;
             const file = fileInput.files[0];
 
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const base64File = event.target.result.split(',')[1]; // Extract base64 data
-                    const data = {
-                        email: email,
-                        orderNumber: orderNumber,
-                        comments: comments,
-                        file: base64File, // Base64 encoded file
-                        mimeType: file.type // MIME type of the file
-                    };
+            const data = {
+                email: email,
+                orderNumber: orderNumber,
+                comments: comments,
+                file: file
+            };
 
-                    submitForm(data, form);
-                };
-                reader.readAsDataURL(file); // Read file as data URL for base64 encoding
-            } else {
-                const data = {
-                    email: email,
-                    orderNumber: orderNumber,
-                    comments: comments
-                };
-                submitForm(data, form);
-            }
+            console.log('Form Data:', data); // Debugging log
+
+            submitForm(data, form);
         });
     });
 
     function submitForm(formData, $form) {
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxWdXfcrmJg6KoohjS_9-hQu7LLrFJcnn5q8x8gdDHUcnmWUfxdHEW1oE2jBMsBk7QY/exec'; // Replace with your actual script URL
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwfIUnkEa-c2hamHn2P9BjY-D7vpUj9fkRKLdOzXx7DhUdDVBVSqcmgMxL2IjeGZGLv/exec'; // Replace with your actual script URL
 
         const formDataToSend = new FormData();
         formDataToSend.append('email', formData.email);
         formDataToSend.append('orderNumber', formData.orderNumber);
         formDataToSend.append('comments', formData.comments);
-        formDataToSend.append('file', formData.file); // Base64 encoded file
-        formDataToSend.append('mimeType', formData.mimeType); // MIME type of the file
+        formDataToSend.append('file', formData.file);
+
+        console.log('Form Data to Send:', formDataToSend); // Debugging log
 
         const loadingElement = document.querySelector('.loading');
         const sentMessageElement = document.querySelector('.sent-message');
@@ -385,10 +370,11 @@
     }
 
     function openLineChat() {
-        // Replace 'YOUR_LINE_OA_ID' with your actual LINE OA ID
-        window.open('https://line.me/R/ti/p/@YOUR_LINE_OA_ID', '_blank');
+        // Replace 'YOUR_LINE_OA_ID' with your actual Line Official Account ID
+        window.open('https://line.me/R/ti/p/@058hrrie', '_blank');
     }
 </script>
+
 
 
 </body></html>
