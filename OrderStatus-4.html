@@ -130,20 +130,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="combinedNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Products
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
-                                <li><a class="dropdown-item" href="auntie-aloha">Auntie Aloha</a></li>
-                                <li><a class="dropdown-item" href="fuzzies">Fuzzies</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="edibles">Edibles</a></li>
-                        <li class="nav-item"><a class="nav-link" href="preroll">Preroll</a></li>
-                        <li class="nav-item"><a class="nav-link" href="packaged-flowers">Packaged Flowers</a></li>
-                    </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="FAQ.html">FAQ</a></li>
                         <li class="nav-item"><a class="nav-link" href="UploadReceipt.html">Payment</a></li>
@@ -159,17 +145,18 @@
         </nav>
     </header>
 
-    <main class="content">
-        <div class="container">
-            <div class="order-status-form">
-                <h1 class="text-center mb-4">Check Order Status</h1>
-                
-                <!-- Order Status Component -->
-                <div data-reflow-type="order-status"></div>
-                
-            </div>
-        </div>
-    </main>
+	<main class="content">
+		<div class="container">
+			<div class="order-status-form">
+				<h1 class="text-center mb-4">Check Order Status</h1>
+				
+				<!-- Order Status Component -->
+				<div data-reflow-type="order-status"></div>
+				
+			</div>
+		</div>
+	</main>
+
     
     <footer class="footer">
         <div class="container">
@@ -202,12 +189,12 @@
                     </ul>
                 </div>
                 <div class="col-md-4 text-md-end">
-                    <p class="mb-0">&copy; 2024 TPO Wellness Store. All rights reserved.</p>
+                    <p class="mb-0">© 2024 TPO Wellness Store. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
-	
+
     <div class="chat-button">
         <button class="btn" onclick="openLineChat()" aria-label="Chat with customer service">
             <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -216,37 +203,43 @@
         </button>
     </div>	
 
-	<script src="https://cdn.reflowhq.com/v2/toolkit.min.js" data-reflow-project="1701742151"></script>
+	<script src="https://cdn.reflowhq.com/v2/toolkit.min.js" data-reflow-project="1701742151" data-reflow-locale="https://khchan8.github.io/TPOShop/TH.json"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.reflowhq.com/v2/toolkit.min.js"></script>
-    
+
 	<script>
 		function openLineChat() {
-			// Replace 'YOUR_LINE_OA_ID' with your actual Line Official Account ID
 			window.open('https://line.me/R/ti/p/@058hrrie', '_blank');
 		}
 
-		// Retrieve order_id and secure_hash from local storage
-		const orderId = localStorage.getItem('order_id');
-		const secureHash = localStorage.getItem('secure_hash');
+		// Check if the URL already has order_id and secure_hash parameters
+		const urlParams = new URLSearchParams(window.location.search);
+		const orderIdFromUrl = urlParams.get('order_id');
+		const secureHashFromUrl = urlParams.get('secure_hash');
 
-		// Check if order_id and secure_hash are available
-		if (orderId && secureHash) {
-			// Use Reflow's Order Status component by setting the query parameters directly in the URL
-			const urlParams = new URLSearchParams(window.location.search);
-			if (!urlParams.get('order_id')) {
+		if (orderIdFromUrl && secureHashFromUrl) {
+			// Save order_id and secure_hash to local storage
+			localStorage.setItem('order_id', orderIdFromUrl);
+			localStorage.setItem('secure_hash', secureHashFromUrl);
+
+			// Let Reflow handle the parameters
+			console.log("Order ID and Secure Hash found in URL and saved to local storage.");
+		} else {
+			// Retrieve order_id and secure_hash from local storage
+			const orderId = localStorage.getItem('order_id');
+			const secureHash = localStorage.getItem('secure_hash');
+
+			// Check if order_id and secure_hash are available in local storage
+			if (orderId && secureHash) {
 				// Update the URL with the order_id and secure_hash
 				urlParams.set('order_id', orderId);
 				urlParams.set('secure_hash', secureHash);
 				window.history.replaceState({}, '', `${window.location.pathname}?${urlParams}`);
+
+				// The order status component will now automatically use these parameters
+				console.log("Order ID and Secure Hash loaded from local storage and added to URL.");
 			}
-			
-			// The order status component will now automatically use these parameters
-		} else {
-			alert("No order information found. Please check your email for your order details.");
 		}
 	</script>
-
 
 </body>
 </html>
