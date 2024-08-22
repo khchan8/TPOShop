@@ -55,6 +55,18 @@
                 opacity: 0;
             }
         }
+		body {
+			font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+			color: var(--text-color);
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			padding-top: 56px; /* Adjusted for single row sticky navbar */
+		}	
+		.content {
+			flex: 1 0 auto;
+			padding: 1rem 0;
+		}		
 </style>
 </head>
 <body>
@@ -139,7 +151,7 @@
 
 		function startConfetti() {
 			if (!confettiInterval) {
-				confettiInterval = setInterval(createConfetti, 300); // Reduced frequency
+				confettiInterval = setInterval(createConfetti, 150); // Increased frequency for more confetti
 			}
 		}
 
@@ -157,11 +169,20 @@
 		function createConfetti() {
 			const confetti = document.createElement('div');
 			confetti.className = 'confetti';
+			
+			// Random positioning and size
 			confetti.style.left = Math.random() * 100 + 'vw';
-			confetti.style.width = '15px';  // Increased size
-			confetti.style.height = '15px'; // Increased size
-			confetti.style.animationDuration = (Math.random() * 4 + 6) + 's'; // Slower fall
+			confetti.style.width = (Math.random() * 10 + 5) + 'px';
+			confetti.style.height = confetti.style.width;
+
+			// Random rotation and fall speed
+			confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+			confetti.style.animationDuration = (Math.random() * 3 + 5) + 's'; // Smooth and varied fall
+
+			// Random color and shape
 			confetti.style.backgroundColor = getRandomColor();
+			confetti.style.borderRadius = Math.random() < 0.5 ? '50%' : '0'; // Circle or square
+
 			document.body.appendChild(confetti);
 			activeConfetti.add(confetti);
 
@@ -172,8 +193,8 @@
 		}
 
 		function getRandomColor() {
-			// Brighter, more contrasting colors
-			const colors = ['#FF00FF', '#00FFFF', '#FFFF00', '#FF0000', '#00FF00', '#0000FF'];
+			// Vibrant colors with more variety
+			const colors = ['#FF00FF', '#00FFFF', '#FFFF00', '#FF5733', '#33FF57', '#3357FF', '#FF33A8', '#33FFA8'];
 			return colors[Math.floor(Math.random() * colors.length)];
 		}
 		
