@@ -66,6 +66,20 @@
 		.content {
 			flex: 1 0 auto;
 			padding: 1rem 0;
+		}
+		.sticky-top {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 1000;
+		}
+		@media (max-width: 991px) {
+			.navbar-collapse {
+				background-color: white;
+				padding: 1rem;
+				border-radius: 0.5rem;
+				box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+			}
 		}		
 </style>
 </head>
@@ -285,7 +299,7 @@
                     navbar.textContent = 'Thailand Legal THC Paradise';
                     break;
                 case 'family-mode':
-                    navbar.textContent = 'Cannabis Candy Shop';
+                    navbar.textContent = 'Herbal Haven';
                     break;
                 case 'matrix-mode':
                     navbar.textContent = 'The Matrix Cannabis';
