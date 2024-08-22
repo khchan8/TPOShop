@@ -99,14 +99,14 @@
                         <li class="nav-item"><a class="nav-link" href="OrderStatus.html">Order Status</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="themeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Theme
+                                Switch
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="themeDropdown">
                                 <li><a class="dropdown-item theme-option" href="#" data-theme="">Default</a></li>
-                                <li><a class="dropdown-item theme-option" href="#" data-theme="dark-mode">Dark Mode</a></li>
-                                <li><a class="dropdown-item theme-option" href="#" data-theme="happy-mode">Happy Mode</a></li>
-                                <li><a class="dropdown-item theme-option" href="#" data-theme="family-mode">Family Mode</a></li>
-                                <li><a class="dropdown-item theme-option" href="#" data-theme="matrix-mode">Matrix Mode</a></li>
+                                <li><a class="dropdown-item theme-option" href="#" data-theme="dark-mode">Dark</a></li>
+                                <li><a class="dropdown-item theme-option" href="#" data-theme="happy-mode">Legal</a></li>
+                                <li><a class="dropdown-item theme-option" href="#" data-theme="family-mode">Herbal Haven</a></li>
+                                <li><a class="dropdown-item theme-option" href="#" data-theme="matrix-mode">Rain</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -165,7 +165,7 @@
 
 		function startConfetti() {
 			if (!confettiInterval) {
-				confettiInterval = setInterval(createConfetti, 150); // Increased frequency for more confetti
+				confettiInterval = setInterval(createConfetti, 500); // Increased frequency for more confetti
 			}
 		}
 
@@ -296,7 +296,7 @@
                     navbar.textContent = 'Black Market Cannabis Shop';
                     break;
                 case 'happy-mode':
-                    navbar.textContent = 'Thailand Legal THC Paradise';
+                    navbar.textContent = 'Legal THC Paradise';
                     break;
                 case 'family-mode':
                     navbar.textContent = 'Herbal Haven';
