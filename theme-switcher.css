@@ -89,41 +89,72 @@ body.dark-mode {
     border-color: #00cc00;
 }
 
-/* Happy Mode Styles */
+/* Legal THC Paradise Styles */
 body.happy-mode {
-    --primary-color: #ff9900;
-    --secondary-color: #ffe6b3;
-    --text-color: #333333;
-    --light-text-color: #666666;
-    --background-color: #fff5e6;
+    --primary-color: #32CD32; /* Legal, trustworthy green */
+    --secondary-color: #FAFAD2; /* Soft, welcoming yellow */
+    --text-color: #2F4F4F; /* Dark, reliable slate gray */
+    --light-text-color: #696969; /* Softer gray for light text */
+    --background-color: #F5FFFA; /* Clean, fresh background */
 }
 
 .happy-mode .navbar,
 .happy-mode .footer {
     background-color: var(--secondary-color);
+    border-bottom: 3px solid var(--primary-color); /* Emphasizes legality and trustworthiness */
 }
 
 .happy-mode .navbar-brand {
     color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif; /* Professional, modern font */
+    font-weight: bold; /* Strong emphasis on the brand */
 }
 
 .happy-mode .nav-link {
     color: var(--text-color);
+    font-family: 'Roboto', sans-serif; /* Clean and easy to read */
+    font-weight: 500; /* Slightly bolder for visibility */
 }
 
 .happy-mode .nav-link:hover, .happy-mode .nav-link:focus {
     color: var(--primary-color);
+    text-decoration: underline; /* Subtle legal document feel */
 }
 
 .happy-mode .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     color: #ffffff;
+    font-family: 'Roboto', sans-serif; /* Consistent, easy-to-read font */
+    font-weight: bold; /* Strong call-to-action */
+    border-radius: 10px; /* Slightly rounded for a welcoming feel */
 }
 
 .happy-mode .btn-primary:hover, .happy-mode .btn-primary:focus {
-    background-color: #e68a00;
-    border-color: #e68a00;
+    background-color: #28a745; /* Slightly darker green for legal emphasis */
+    border-color: #28a745;
+}
+
+.happy-mode .footer p {
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+}
+
+.happy-mode .list-inline-item a {
+    color: var(--primary-color); /* Legal emphasis */
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold; /* Stronger emphasis on links */
+}
+
+.happy-mode .list-inline-item a:hover, .happy-mode .list-inline-item a:focus {
+    color: #006400; /* Darker green, reinforcing legal security */
+}
+
+.happy-mode .container {
+    border-radius: 20px; /* Rounded corners for a friendly appearance */
+    padding: 20px;
+    background-color: var(--background-color);
+    box-shadow: 0 0 10px rgba(50, 205, 50, 0.2); /* Soft green glow for a legal, secure atmosphere */
 }
 
 /* Family Mode Styles */
@@ -137,31 +168,56 @@ body.family-mode {
 
 .family-mode .navbar,
 .family-mode .footer {
-    background-color: var(--secondary-color);
+    background-color: #8FBC8F; /* Soothing, herbal green */
 }
 
 .family-mode .navbar-brand {
-    color: var(--primary-color);
+    color: #2F4F4F; /* Darker, natural tone */
+    font-family: 'Pacifico', cursive; /* Playful, inviting font for the brand name */
 }
 
 .family-mode .nav-link {
-    color: var(--text-color);
+    color: #556B2F; /* Earthy, warm tone */
+    font-family: 'Roboto', sans-serif; /* Easy-to-read font */
 }
 
 .family-mode .nav-link:hover, .family-mode .nav-link:focus {
-    color: var(--primary-color);
+    color: #FF4500; /* Warm, welcoming accent color */
+    text-decoration: underline; /* Subtle emphasis on hover */
 }
 
 .family-mode .btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    background-color: #32CD32; /* Vibrant, family-friendly green */
+    border-color: #32CD32;
     color: #ffffff;
+    font-family: 'Roboto', sans-serif; /* Consistent, easy-to-read font */
 }
 
 .family-mode .btn-primary:hover, .family-mode .btn-primary:focus {
-    background-color: #ff3399;
-    border-color: #ff3399;
+    background-color: #FF6347; /* Playful, warm hover color */
+    border-color: #FF6347;
 }
+
+.family-mode .footer p {
+    color: #2E8B57; /* Calming, herbal tone for footer text */
+    font-family: 'Roboto', sans-serif;
+}
+
+.family-mode .list-inline-item a {
+    color: #6B8E23; /* Earthy, approachable link color */
+    font-family: 'Roboto', sans-serif;
+}
+
+.family-mode .list-inline-item a:hover, .family-mode .list-inline-item a:focus {
+    color: #FF4500; /* Warm, inviting hover effect */
+}
+
+.family-mode .container {
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #FAF0E6; /* Light, warm background for a welcoming atmosphere */
+}
+
 
 /* Matrix Mode */
 body.matrix-mode {
