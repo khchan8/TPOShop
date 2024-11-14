@@ -20,9 +20,13 @@
     <script>
         window.addEventListener('reflow:ready', function() {
             console.log('Reflow Ready'); // Debug log
-            if (!window.Reflow.customer.isAuthenticated()) {
+            
+    if (!window.Reflow.customer.isAuthenticated()) {
+        console.error('User is not authenticated. Redirecting to login page...');
+    
                 console.log('User not authenticated, redirecting...'); // Debug log
                 window.location.href = 'auth.html';
+            }
             } else {
                 console.log('User is authenticated'); // Debug log
             }
