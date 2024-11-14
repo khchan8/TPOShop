@@ -8,6 +8,27 @@
     <link rel="stylesheet" href="https://cdn.reflowhq.com/v2/toolkit.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="theme-switcher.css">
+
+    <!-- ReflowHQ Integration -->
+    <script>
+        window.reflowStore = {
+            id: "1701742151"
+        };
+    </script>
+    <script src="https://cdn.reflow.io/api.js"></script>
+    <script src="https://cdn.reflowhq.com/v2/toolkit.min.js" data-reflow-project="1701742151" data-reflow-locale="https://khchan8.github.io/TPOShop/TH.json"></script>
+    <script>
+        window.addEventListener('reflow:ready', function() {
+            console.log('Reflow Ready'); // Debug log
+            if (!window.Reflow.customer.isAuthenticated()) {
+                console.log('User not authenticated, redirecting...'); // Debug log
+                window.location.href = 'auth.html';
+            } else {
+                console.log('User is authenticated'); // Debug log
+            }
+        });
+    </script>
+
 <style>
 		.confetti {
 			position: fixed;
@@ -157,22 +178,7 @@
         </div>
     </footer>
 
-    <script>
-        window.reflowStore = {
-            id: "1701742151"  // Replace with your store ID
-        };
-    </script>
-    <script src="https://cdn.reflow.io/store.js"></script>
-    <script>
-        window.addEventListener('reflow:ready', function() {
-            if (!window.Reflow.customer.isAuthenticated()) {
-                window.location.href = 'auth.html';
-            }
-        });
-    </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.reflowhq.com/v2/toolkit.min.js" data-reflow-project="1701742151" data-reflow-locale="https://khchan8.github.io/TPOShop/TH.json"></script>
     <script>
 
 			document.body.insertAdjacentHTML('beforeend', '<div id="confetti-container"></div>');
