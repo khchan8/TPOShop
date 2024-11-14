@@ -42,18 +42,33 @@
         </div>
     </div>
 
-    <script>
+<script>
+    // Reflow Ready Event
+    window.addEventListener('reflow:ready', () => {
+        console.log('Reflow toolkit is ready.');
+    });
+
+    // Handle successful sign-in
     window.addEventListener('reflow:signin', () => {
         console.log('Sign in successful. Redirecting to index page...');
         window.location.href = 'index.html';
     });
 
+    // Handle customer state changes
     window.addEventListener('reflow:customer:state', function(event) {
         if (event.detail.isAuthenticated) {
-            console.log('User authenticated, redirecting to store...');
+            console.log('User is authenticated, redirecting to store...');
             window.location.href = 'index.html';
+        } else {
+            console.log('User is not authenticated. Displaying login page...');
         }
     });
-    </script>
+
+    // Debugging Reflow Authentication Component
+    window.addEventListener('reflow:auth', (event) => {
+        console.log('Auth component rendered:', event);
+    });
+</script>
+
 </body>
 </html>
