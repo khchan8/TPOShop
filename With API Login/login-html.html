@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPO B2B Portal - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.reflow.io/api.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module">
+        import { createRoot } from 'https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js';
+        import { LoginPage } from './login-page.js';
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(LoginPage());
+        
+        // Initialize Reflow
+        window.Reflow.init({
+            api_key: 'YOUR_REFLOW_API_KEY'
+        });
+        
+        // Redirect if already logged in
+        window.addEventListener('reflow:ready', () => {
+            if (window.Reflow.customer.isAuthenticated()) {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
